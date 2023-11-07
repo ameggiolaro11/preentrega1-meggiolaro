@@ -7,7 +7,6 @@ function App() {
   return (
     <div>
       <Navbar />
-      <CartWidget />
       <ItemListContainer greeting="Bienvenidos a RASH SPORTS" />
     </div>
   );

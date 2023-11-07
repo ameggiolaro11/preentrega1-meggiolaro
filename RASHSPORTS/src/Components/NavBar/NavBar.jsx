@@ -1,5 +1,7 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import CartWidget from '../CartWidget/CartWidget';
+
 
 const Navbar = () => {
   return (
@@ -22,6 +24,7 @@ const Navbar = () => {
           <a className="nav-link" href="#">Categoría 5</a>
         </li>
       </ul>
+      <CartWidget />
     </nav>
   );
 };
