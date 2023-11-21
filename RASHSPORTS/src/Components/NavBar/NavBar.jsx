@@ -8,13 +8,19 @@ const Navbar = () => {
         <img src="/img/logotipo.jpg" alt="" style={{width: "100px"}}/>
       <a className="navbar-brand" href="#">RASH SPORTS</a>
       <div>
-      <button className="btn btn-primary mr-4">CAMISETAS</button>
-      <button className="btn btn-primary mr-4">BUZOS/CAMPERAS</button>
-      <button className="btn btn-primary mr-4">GORRAS</button>
-      <button className="btn btn-primary mr-4">BOTINES</button>
-      <button className="btn btn-primary mr-4">PELOTAS</button>
+        <link to="/">
+        <button className="btn btn-primary mr-4">HOME</button>
+        </link>
+        <link to="/category/Indumentaria">
+        <button className="btn btn-primary mr-4">INDUMENTARIA</button>
+        </link>
+        <link to="/category/Calzado">
+        <button className="btn btn-primary mr-4">CALZADO</button>
+        </link>
       </div>
+      <link to ="/cart">
       <CartWidget />
+      </link>
     </nav>
   );
 };
