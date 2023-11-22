@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { ItemList } from '../ItemList/ItemList';
 
-export const ItemListContainer = ({  }) => {
+export const ItemListContainer = () => {
   const { category } = useParams();
 
   const [products, setProducts] = useState([]);
@@ -19,23 +19,26 @@ export const ItemListContainer = ({  }) => {
         if(productsFilter.length > 0) {
           setProducts(productsFilter);
         } else { 
-        setProducts(resp);
-
-      } 
-      
-    } else {
-
+          setProducts(resp);
+        } 
+      } else {
         setProducts(resp);
       }
       setIsLoading(false);
     })
-
     .catch((error) => console.log(error));
   }, [category]); 
-   
+  
   return (
     <>
-    { isLoading ? <h2> Cargando productos... </h2> : <ItemList products ={products} /> }
+      {isLoading ? (
+        <div>
+          <h2>Cargando productos...</h2>
+          <img src="./img/loading.gif" alt="Cargando" />
+        </div>
+      ) : (
+        <ItemList products={products} />
+      )}
     </>
   );
 };

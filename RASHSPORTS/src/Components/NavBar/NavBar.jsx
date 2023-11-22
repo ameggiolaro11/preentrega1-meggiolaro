@@ -1,6 +1,7 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import CartWidget from '../CartWidget/CartWidget';
+import { Link } from 'react-router-dom';
 
 const Navbar = () => {
   return (
@@ -8,19 +9,19 @@ const Navbar = () => {
         <img src="/img/logotipo.jpg" alt="" style={{width: "100px"}}/>
       <a className="navbar-brand" href="#">RASH SPORTS</a>
       <div>
-        <link to="/">
+        <Link to="/">
         <button className="btn btn-primary mr-4">HOME</button>
-        </link>
-        <link to="/category/Indumentaria">
+        </Link>
+        <Link to="/category/Indumentaria">
         <button className="btn btn-primary mr-4">INDUMENTARIA</button>
-        </link>
-        <link to="/category/Calzado">
+        </Link>
+        <Link to="/category/Calzado">
         <button className="btn btn-primary mr-4">CALZADO</button>
-        </link>
+        </Link>
       </div>
-      <link to ="/cart">
+      <Link to ="/cart">
       <CartWidget />
-      </link>
+      </Link>
     </nav>
   );
 };
