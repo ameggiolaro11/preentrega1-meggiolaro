@@ -3,13 +3,15 @@ import { CartContext } from "../../Context/CartContext";
 import { ItemCart } from "../ItemCart/ItemCart";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrash, faShoppingCart } from "@fortawesome/free-solid-svg-icons";
+import { FirebaseContext } from "../../Context/FirebaseContext";
 
 export const Cart = () => {
   const { cart, removeAllItems } = useContext(CartContext);
+  const { addOrder } = useContext(FirebaseContext)
   const totalPrice = cart.reduce((acc, product) => acc + product.price * product.quantity, 0);
 
   const handleConfirmPurchase = () => {
-    
+    addOrder(cart, totalPrice);
   };
 
   return (

@@ -5,21 +5,24 @@ import ItemDetailContainer from './Components/ItemDetailContainer/ItemDetailCont
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { Cart } from './Components/Cart/Cart';
 import { CartContextProvider } from './Context/CartContext';
+import { FirebaseContextProvider } from './Context/FirebaseContext';
 
 
 function App() {
   return (
     <div>
       <BrowserRouter>
-        <CartContextProvider>
-          <Navbar />
-          <Routes>
-          <Route path="/" element={  <ItemListContainer />} />
-          <Route path="/category/:category" element={  <ItemListContainer />} />
-          <Route path="/item/:id" element={ <ItemDetailContainer />} />
-          <Route path="/cart" element={ <Cart />} />
-          </Routes>
-        </CartContextProvider>
+        <FirebaseContextProvider>
+          <CartContextProvider>
+            <Navbar />
+            <Routes>
+            <Route path="/" element={  <ItemListContainer />} />
+            <Route path="/category/:category" element={  <ItemListContainer />} />
+            <Route path="/item/:id" element={ <ItemDetailContainer />} />
+            <Route path="/cart" element={ <Cart />} />
+            </Routes>
+          </CartContextProvider>
+        </FirebaseContextProvider>
       </BrowserRouter>
     </div>
   );

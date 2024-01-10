@@ -42,12 +42,10 @@ export const CartContextProvider = ({ children }) => {
 
   const handleTotalCart = () => {
     const total = cart.reduce((acum, item) => acum + item.subTotal, 0);
-    console.log("Total del carrito:", total);
   };
 
   const handleTotalProductsCart = () => {
     const total = cart.reduce((acum, item) => acum + item.quantity, 0);
-    console.log("Cantidad total de productos en el carrito:", total);
   };
 
   useEffect(() => {

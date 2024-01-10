@@ -2,7 +2,7 @@ import { useState } from "react";
 
 export const ItemCount = ({ stock, initial = 1, onAdd }) => {
   const [count, setCount] = useState(initial);
-  
+
   const increment = () => {
     if (count < stock) {
       return setCount(count + 1);
@@ -17,21 +17,20 @@ export const ItemCount = ({ stock, initial = 1, onAdd }) => {
     setCount(count - 1);
   };
 
-
   return (
-    <div className="d-flex flex-column col-2 justify-content-center align-content-center p-4">
-      <div className="d-flex align-items-center">
-        <button className="btn btn-outline-secondary" onClick={increment}>
-          +
-        </button>
-        <strong className="mx-3">{count}</strong>
-        <button className="btn btn-outline-secondary" onClick={decrement}>
+    <div className="container mt-4 text-center">
+      <div className="input-group">
+        <button className="btn btn-outline-secondary" type="button" onClick={decrement}>
           -
         </button>
+        <input type="text" className="form-control text-center" value={count} readOnly />
+        <button className="btn btn-outline-secondary" type="button" onClick={increment}>
+          +
+        </button>
       </div>
-      <button className="btn btn-outline-primary mt-2" onClick={() => onAdd(count)}>
+      <button className="btn btn-primary mt-3" onClick={() => onAdd(count)}>
         Agregar al carrito
       </button>
     </div>
   );
-  }
+};

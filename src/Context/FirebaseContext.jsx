@@ -7,12 +7,11 @@ export const FirebaseContext = createContext(null);
 export const FirebaseContextProvider = ({ children }) => {
   const [orderId, setOrderId] = useState("");
 
-  const addOrder = async (cartProducts, userData, total) => {
+  const addOrder = async (cartProducts, total) => {
     const newOrder = {
       items: cartProducts,
       data: serverTimestamp(),
-      buyer: userData,
-      total,
+      total
     };
 
     const refOrder = await addDoc(collection(db, "orders"), newOrder);
