@@ -5,6 +5,10 @@ import { CartContext } from "../../Context/CartContext";
 export const ItemDetail = ({ id, img, price, stock, name }) => {
   const { addItem } = useContext(CartContext);
 
+  const handleAddToCart = (quantity) => {
+    addItem({ id, img, price, name, quantity });
+  };
+
   return (
     <div className="border m-2">
       <div className="card ">
@@ -13,7 +17,7 @@ export const ItemDetail = ({ id, img, price, stock, name }) => {
           <img src={img} alt="" />
           <p>Precio: ${price} </p>
           <p>Stock: {stock} unidades</p>
-          <ItemCount stock={stock} onAdd={() => addItem({ id, img, price, name })} />
+          <ItemCount stock={stock} onAdd={handleAddToCart} />
         </div>
       </div>
     </div>
